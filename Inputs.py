@@ -1,5 +1,4 @@
 __author__ = 'psk'
-__author__ = 'psk'
 import Main
 import pygame
 import sys
@@ -8,19 +7,20 @@ from pygame.locals import *
 
 class Inputs(object):
     def __init__(self,main):
-         self.Buttons = {}
+        print "Inputconstructor"
+        self.Buttons = {}
 
     def initialize(self):
+        print "Input init..."
         #Array/collection of buttons
-        self.Buttons["Exit"] = Button.Button((0,0,40, 40))
+        self.Buttons["Exit"] = Button.Button((280,200,40, 40))
         self.Buttons["Exit"].color=(0,0,0,0)
         self.Buttons["Exit"].iconFg= pygame.image.load("Icons/Frame_Exit.png")
         self.Buttons["Exit"].callback = sys.exit
 
-    def update(self,screen):
+    def update(self):
 
         for event in pygame.event.get():
-
             if event.type == pygame.QUIT:
                 sys.exit()
             if(event.type is MOUSEBUTTONDOWN):

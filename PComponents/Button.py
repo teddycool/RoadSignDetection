@@ -1,5 +1,5 @@
 __author__ = 'psk'
-# Button is a simple tappable screen region.  Each has:
+# Button is a simple tappable display region.  Each has:
 #  - bounding rect ((X,Y,W,H) in pixels)
 #  - optional background color and/or Icon (or None), always centered
 #  - optional foreground Icon, always centered
@@ -10,7 +10,7 @@ __author__ = 'psk'
 # overlap, lowest/first Button in list takes precedence when processing
 # input, and highest/last Button is drawn atop prior Button(s).  This is
 # used, for example, to center an Icon by creating a passive Button the
-# width of the full screen, but with other buttons left or right that
+# width of the full display, but with other buttons left or right that
 # may take input precedence (e.g. the Effect labels & buttons).
 # After Icons are loaded at runtime, a pass is made through the global
 # buttons[] list to assign the Icon objects (from names) to each Button.
