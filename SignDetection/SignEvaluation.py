@@ -1,7 +1,11 @@
 __author__ = 'psk'
 
+#Purpose of class: detect type of traffic-sign in area containing sign
 
+class SignEvaluation(object):
 
+    def __init__(self):
+        return
 
 
 
@@ -17,5 +21,5 @@ __author__ = 'psk'
 
 
 if __name__ == "__main__":
+    se = SignEvaluation()
 
-    #snapshot = pygame.surface.Surface((640,480),0)

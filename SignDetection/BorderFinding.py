@@ -8,25 +8,21 @@ class Borders(object):
     def __init__(self):
         return
 
-    def update(self, snapshot):
+    def update(self, img):
         #img = cv2.
-        img = pygame.surfarray(snapshot)
-        gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-        edges = cv2.Canny(gray,50,150,apertureSize = 3)
+        #img = pygame.surfarray.array3d(snapshot)
+        img1 = cv2.medianBlur(img,1)
+        cimg = cv2.cvtColor(img1,cv2.COLOR_GRAY2BGR)
+        #cv2.imwrite("C:\\Users\\psk\\PycharmProjects\\RoadSignDetection\\SignDetection\\testimg\\seq253_gray.jpg",cimg)
 
-        lines = cv2.HoughLines(edges,1,np.pi/180,200)
-        for rho,theta in lines[0]:
-            a = np.cos(theta)
-            b = np.sin(theta)
-            x0 = a*rho
-            y0 = b*rho
-            x1 = int(x0 + 1000*(-b))
-            y1 = int(y0 + 1000*(a))
-            x2 = int(x0 - 1000*(-b))
-            y2 = int(y0 - 1000*(a))
-
-            cv2.line(img,(x1,y1),(x2,y2),(0,0,255),2)
-
+        circles = cv2.HoughCircles(img1,cv2.cv.CV_HOUGH_GRADIENT,1,150, param1=100,param2=10,minRadius=12,maxRadius=20)
+        print "Circles: " + str(len(circles))
+        circles = np.uint16(np.around(circles))
+        for i in circles[0,:]:
+            # draw the outer circle
+            cv2.circle(img,(i[0],i[1]),i[2],(0,255,0),2)
+            # draw the center of the circle
+            cv2.circle(img,(i[0],i[1]),2,(0,0,255),3)
         return img
 
 #def draw(self, screen):
@@ -34,7 +30,9 @@ class Borders(object):
 if __name__ == "__main__":
 
     #snapshot = pygame.surface.Surface((640,480),0)
-    snapshot = pygame.image.load("r1501m.jpg")
+    snapshot = cv2.imread("C:\\Users\\psk\\PycharmProjects\\RoadSignDetection\\SignDetection\\testimg\\seq391.jpg", 0)
     bf = Borders()
     img = bf.update(snapshot)
-    pygame.image.save(img, "test.jpg")
+    cv2.imshow('img',img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()

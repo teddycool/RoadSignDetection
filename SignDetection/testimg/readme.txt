@@ -1,0 +1,1 @@
+test-images should be 640x480 full color
