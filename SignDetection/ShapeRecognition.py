@@ -40,8 +40,8 @@ class ShapeRegonition(object):
 
 
 if __name__ == "__main__":
-    shapeImg = "C:\\Users\\psk\\PycharmProjects\\RoadSignDetection\\SignDetection\\testimg\\seq253.jpg"
-    shapeImg = "C:\\Users\\psk\\PycharmProjects\\RoadSignDetection\\SignDetection\\testimg\\seq238.jpg"
+    shapeImg = "C:\\Users\\psk\\PycharmProjects\\RoadSignDetection\\SignDetection\\testimg\\seq485.jpg"
+    #shapeImg = "C:\\Users\\psk\\PycharmProjects\\RoadSignDetection\\SignDetection\\testimg\\seq238.jpg"
     sr = ShapeRegonition()
     img = sr.findContours(shapeImg)
     cv2.imshow('ShapeRecognition',img)

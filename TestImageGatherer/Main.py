@@ -65,16 +65,14 @@ class Main(object):
             self.display.blit(snapshot,(0,0))
             pygame.display.flip()
             t=0
-            while t < 100:
-                t=t+1
-                time.sleep(0.01)
+            time.sleep(0.01)
         sys.exit()
 
 if __name__ == "__main__":
     #Set to webcam ID, std is 0. Networked cam is probably 1
-    camid=0
+    camid=1
     #Set to resolution of your webcam
-    width= 640
-    height=480
+    width= 1024
+    height=768
     gl=Main(camid,width,height)
     gl.run()

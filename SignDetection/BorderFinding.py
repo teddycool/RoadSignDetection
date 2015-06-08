@@ -15,7 +15,7 @@ class Borders(object):
         cimg = cv2.cvtColor(img1,cv2.COLOR_GRAY2BGR)
         #cv2.imwrite("C:\\Users\\psk\\PycharmProjects\\RoadSignDetection\\SignDetection\\testimg\\seq253_gray.jpg",cimg)
 
-        circles = cv2.HoughCircles(img1,cv2.cv.CV_HOUGH_GRADIENT,1,150, param1=100,param2=10,minRadius=12,maxRadius=20)
+        circles = cv2.HoughCircles(img1,cv2.cv.CV_HOUGH_GRADIENT,1,150, param1=100,param2=15,minRadius=15,maxRadius=25)
         print "Circles: " + str(len(circles))
         circles = np.uint16(np.around(circles))
         for i in circles[0,:]:
