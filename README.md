@@ -1,0 +1,3 @@
+# RoadSignDetection
+This project aims to recognise roadsigns with a cam using python and opencv with PyGame for the userinterface. The project will run on a raspberrypi with a cam placed at the dashboard. The pi will either evaluate the signs directly or sending results to some other device that uses the information. Possible uses could be to warn driver when missing a speed-sign or saving road-sign data to a database with a gps-position taken from an android device via bluetooth. 
+The project will be developed in steps where the first step is to recognise some speed-signs from saved images that was recorded when driving (samples).  
